@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=https://goreleaser.com/static/schema.json
+version: 2
+
+builds:
+  - env:
+      - CGO_ENABLED=0
+    mod_timestamp: '{{ .CommitTimestamp }}'
+    flags:
+      - -trimpath
+    ldflags:
+      - '-s -w'
+    goos:
+      - linux
+      - darwin
+      - windows
+    goarch:
+      - amd64
+      - arm64
+    binary: '{{ .ProjectName }}_v{{ .Version }}'
+
+archives:
+  - format: zip
+    name_template: '{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}'
+
+checksum:
+  name_template: '{{ .ProjectName }}_{{ .Version }}_SHA256SUMS'
+  algorithm: sha256
+
+release:
+  draft: true
+
+changelog:
+  use: git
+  groups:
+    - title: Features
+      regexp: '^.*?feat(\(.+\))??!?:.*$'
+    - title: Bug fixes
+      regexp: '^.*?fix(\(.+\))??!?:.*$'
+    - title: Others
+      regexp: '^.*?refactor(\(.+\))??!?:.*$'
