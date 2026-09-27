@@ -1,0 +1,9 @@
+{
+  "modules.v1": {
+    "portallocator": {
+      "versions": {
+        "v1.0.0": {}
+      }
+    }
+  }
+}
