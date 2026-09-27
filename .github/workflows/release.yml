@@ -32,3 +32,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GPG_FINGERPRINT: ${{ steps.import_gpg.outputs.fingerprint }}
+      - name: Publish to GitHub Pages registry
+        uses: AbsaOSS/ghpages-to-tf-provider-registry@v0.1
+        with:
+          token: ${{ secrets.GH_REG_TOKEN }}
+          repository: rsxdalv/rsxdalv.github.io
+          branch: gh-pages
+          gpg_keyid: ${{ steps.import_gpg.outputs.keyid }}
+          gpg_ascii_armor: ${{ steps.import_gpg.outputs.pub_ascii_armor }}
