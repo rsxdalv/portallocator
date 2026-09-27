@@ -37,7 +37,7 @@ func (p *portAllocatorProvider) DataSources(_ context.Context) []func() datasour
 
 func main() {
 	if err := providerserver.Serve(context.Background(), newProvider, providerserver.ServeOpts{
-		Address: "registry.terraform.io/example/portallocator",
+		Address: "registry.terraform.io/rsxdalv/portallocator",
 	}); err != nil {
 		log.Fatalf("[portallocator] %v", err)
 	}
