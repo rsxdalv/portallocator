@@ -29,7 +29,7 @@ Outputs:
 terraform {
   required_providers {
     portallocator = {
-      source  = "github.com/example/terraform-provider-portallocator"
+      source  = "github.com/rsxdalv/terraform-provider-portallocator"
       version = ">= 1.0.0"
     }
   }

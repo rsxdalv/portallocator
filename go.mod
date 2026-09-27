@@ -1,4 +1,4 @@
-module github.com/example/port_allocator
+module github.com/rsxdalv/terraform-provider-portallocator
 
 go 1.22.0
 
