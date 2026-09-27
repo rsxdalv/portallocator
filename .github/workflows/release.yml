@@ -39,4 +39,4 @@ jobs:
           repository: rsxdalv/rsxdalv.github.io
           branch: gh-pages
           gpg_keyid: ${{ steps.import_gpg.outputs.keyid }}
-          gpg_ascii_armor: ${{ steps.import_gpg.outputs.pub_ascii_armor }}
+          gpg_ascii_armor: ${{ secrets.GPG_PUBLIC_KEY }}
